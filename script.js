@@ -49,11 +49,30 @@ function playGame(playerSelection , computerSelection) {
     }
 }
 
-function gameOutput() {
-    
+function gameOutput(WLT , userStr , compStr) {
+    switch(WLT) {
+        case "win":
+            console.log("You Win!" + " " + userStr + " beats " + compStr)
+            break;
+        case "lose":
+            console.log("You Lose!" + " " + compStr + " beats " + userStr)
+            break;
+        case "tie":
+            console.log("It's a Tie")
+            break;
+        default:
+            console.log("how?")
+
+    }
 }
 
 // let computerChoice = computerPlay()
 
 // let userChoice = prompt("What's your choice?").toLowerCase()
 // userChoice = userChoice.charAt(0).toUpperCase() + userChoice.slice(1)
+// userChoice = choiceStr2Num(userChoice)
+
+let userChoice = 2
+let computerChoice = 2
+
+gameOutput(playGame(userChoice , computerChoice) , choiceNum2Str(userChoice) , choiceNum2Str(computerChoice))
