@@ -3,33 +3,23 @@
 function computerPlay() {
     switch(Math.floor(Math.random() * 3)) {
         case 0:
-            console.log("Computer chose rock")
+            return "Rock"
             break;
         case 1:
-            console.log("Computer chose paper")
+            return "Paper"
             break;
         case 2:
-            console.log("Computer chose scissors")
+            return "Scissors"
             break;
         default:
             console.log("wut?")
     }
 }
+let computerChoice = computerPlay()
 
-computerPlay()
-// const choice = computerPlay()
+let userChoice = prompt("What's your choice?").toLowerCase()
+userChoice = userChoice.charAt(0).toUpperCase() + userChoice.slice(1)
 
-// switch(choice) {
-//     case 0:
-//         console.log("Computer chose rock")
-//         break;
-//     case 1:
-//         console.log("Computer chose paper")
-//         break;
-//     case 2:
-//         console.log("Computer chose scissors")
-//         break;
-//     default:
-//         console.log("wut?")
-// }
+function playGame(playerSelection , computerSelection) {
 
+}
