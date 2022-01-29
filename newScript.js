@@ -45,6 +45,8 @@ function displayResult(userChoice , computerChoice , outcome , playerWins , comp
 
 
 
+
+
 function computerChoice() {
     return Math.floor(Math.random() * 3)
 }
