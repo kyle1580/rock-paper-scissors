@@ -83,7 +83,12 @@ body {
 }
 
 .result {
-    display: block;
+    text-align: center;
+}
+
+.winner {
+    display: flex;
+    flex-direction: column;
     text-align: center;
 }
 
