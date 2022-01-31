@@ -18,6 +18,7 @@ function displayResult(userChoice , computerChoice , outcome , playerWins , comp
     const result = document.getElementById('result');
     const playerScore = document.querySelector(".score.player");
     const computerScore = document.querySelector(".score.computer");
+    const winner = document.getElementById('winner');
 
     result.innerHTML = '';
 
@@ -38,35 +39,39 @@ function displayResult(userChoice , computerChoice , outcome , playerWins , comp
         default:
             console.log("oops");
     }
+    if(playerWins === 5) {
+        winner.textContent = "Player Wins!";
+        result.innerHTML = '';
+        document.getElementById("0").disabled = true;
+        document.getElementById("1").disabled = true;
+        document.getElementById("2").disabled = true;
+        const startOver = document.createElement('button');
+        startOver.textContent = "Start Over";
+        startOver.addEventListener('click' , function() {
+            location.reload();
+        });
+        winner.appendChild(startOver)
+    } else if(computerWins === 5) {
+        winner.textContent = "Computer Wins!";
+        result.innerHTML = '';
+        document.getElementById("0").disabled = true;
+        document.getElementById("1").disabled = true;
+        document.getElementById("2").disabled = true;
+        const startOver = document.createElement('button');
+        startOver.textContent = "Start Over";
+        startOver.addEventListener('click' , function() {
+            location.reload();
+        });
+        winner.appendChild(startOver);
+    } else {
+
+    }
     return [playerWins, computerWins];
 }
-
-
-
-
-
-
 
 function computerChoice() {
     return Math.floor(Math.random() * 3)
 }
-
-// function userChoice() {
-//     let userStr = prompt("What's your choice?").toLowerCase()
-//     switch(userStr) {
-//         case "rock":
-//             return 0
-//             break;
-//         case "paper":
-//             return 1
-//             break;
-//         case "scissors":
-//             return 2
-//             break;
-//         default:
-//             console.log("Wut?")
-//     }
-// }
 
 function playRound(userChoice , computerChoice) {
     let diff = userChoice - computerChoice
@@ -80,37 +85,6 @@ function playRound(userChoice , computerChoice) {
         console.log("Oops?")
     }
 }
-
-// function game() {
-//     let userWins = 0
-//     let computerWins = 0
-//     while(userWins < 3 && computerWins < 3) {
-//         let userNum = userChoice()
-//         let computerNum = computerChoice()
-//         let outcome = playRound(userNum , computerNum)
-//         switch(outcome) {
-//             case "tie":
-//                 console.log("It's a tie!")
-//                 break;
-//             case "win":
-//                 console.log("You Win!" + " " + choiceNum2Str(userNum) + " beats " + choiceNum2Str(computerNum))
-//                 userWins++
-//                 break;
-//             case "lose":
-//                 console.log("You Lose!" + " " + choiceNum2Str(computerNum) + " beats " + choiceNum2Str(userNum))
-//                 computerWins++
-//                 break;
-//             default:
-//                 console.log("???")
-//         }
-//         console.log("Current Score:" + " " + userWins + " - " + computerWins)
-//     }
-//     if(userWins > computerWins) {
-//         console.log("You Win!")
-//     } else {
-//         console.log("Computer Wins :(")
-//     }
-// }
 
 function choiceNum2Str(choice) {
     switch(choice) {
